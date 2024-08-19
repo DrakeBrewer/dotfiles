@@ -10,7 +10,7 @@ sleep 1
 
 echo "Installing formulae and casks..."
 
-brew bundle install --file "./Brewfile"
+brew bundle install --file "~/.dotfiles/install/Brewfile"
 
 echo "Formulae and casks installed!"
 
