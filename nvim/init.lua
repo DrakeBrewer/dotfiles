@@ -350,6 +350,13 @@ require('lazy').setup({
         '<cmd>Oil<cr>',
       },
     },
+    config = function()
+      require('oil').setup {
+        view_options = {
+          show_hidden = true,
+        },
+      }
+    end,
   },
   {
     'chrisgrieser/nvim-spider',
