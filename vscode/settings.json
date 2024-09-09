@@ -1,0 +1,51 @@
+{
+    "svelte.plugin.svelte.note-new-transformation": false,
+    "workbench.iconTheme": "vscode-icons",
+    "[python]": {
+        "editor.formatOnType": true
+    },
+    "svelte.enable-ts-plugin": true,
+    "explorer.confirmDelete": false,
+    "editor.minimap.enabled": false,
+    "workbench.colorCustomizations": {
+
+        "editor.background": "#0b0b0b",
+        "tab.activeBackground": "#0b0b0b",
+        // "tab.activeBorderTop": "#ff0000",
+        "terminal.background": "#000",
+        "editorWidget.background": "#000",
+        "activityBar.foreground": "#ffff",
+        "activityBar.inactiveForeground": "#484848",
+    },
+    "editor.tokenColorCustomizations": {
+        "textMateRules": [
+            {
+                "scope": "entity.name.function",
+                "settings": {
+                    "fontStyle": "italic"
+                }
+
+            },
+            {
+                "scope": "entity.name.type",
+                "settings": {
+                    "fontStyle": "italic bold"
+                }
+            }
+        ]
+    },
+    "editor.fontVariations": false,
+    "editor.fontLigatures": false,
+    "terminal.integrated.fontFamily": "monospace",
+    "terminal.integrated.env.osx": {},
+    "workbench.sideBar.location": "right",
+    "console-ninja.featureSet": "Community",
+    "workbench.editorAssociations": {
+        "*.pdf": "default"
+    },
+    "go.toolsManagement.autoUpdate": true,
+    "cmake.pinnedCommands": [
+        "workbench.action.tasks.configureTaskRunner",
+        "workbench.action.tasks.runTask"
+    ]
+}

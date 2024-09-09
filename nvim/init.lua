@@ -252,9 +252,12 @@ require('lazy').setup({
   --    require('Comment').setup({})
 
   -- "gc" to comment visual regions/lines
-  { 'numToStr/Comment.nvim', opts = {
-    ignore = '^$',
-  } },
+  {
+    'numToStr/Comment.nvim',
+    opts = {
+      ignore = '^$',
+    },
+  },
 
   -- Here is a more advanced example where we pass configuration
   -- options to `gitsigns.nvim`. This is equivalent to the following Lua:
@@ -301,6 +304,13 @@ require('lazy').setup({
             end,
             desc = '[br] set breakpoint',
           },
+          {
+            '<leader>dw',
+            function()
+              require('dapui').elements.watches.add '/nat ... variable'
+            end,
+            desc = '[W]atch',
+          },
         },
         config = function()
           local dap = require 'dap'
@@ -321,6 +331,12 @@ require('lazy').setup({
               request = 'launch',
               name = 'lldb',
               program = '${command:pickFile}',
+              -- program = function()
+              --   return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+              -- end,
+              -- cwd = '${workspaceFolder}',
+              -- stopOnEntry = false,
+              args = { '-5', './datasets/mobydick.txt' },
             },
           }
         end,

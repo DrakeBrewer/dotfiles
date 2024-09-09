@@ -16,5 +16,9 @@ option_as_alt = "Both"
 bindings = [
 ]
 
-[font.normal]
-family = "MesloLGS NF"
+[font]
+# normal = { family = "Mx437 Acer VGA 8x8" }
+normal = { family = "MesloLGS NF" }
+size = 12.7
+offset = { x = 0, y = 2}
+
