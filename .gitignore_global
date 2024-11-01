@@ -1,2 +1,3 @@
-.DS_Store
-.DB_Store
+*.DS_Store
+*.DB_Store
+*.mise.toml

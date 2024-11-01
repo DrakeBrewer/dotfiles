@@ -183,14 +183,6 @@ vim.keymap.set({ 'n', 'i' }, '<right>', '<cmd>echo "Use l in normal to move!!"<C
 vim.keymap.set({ 'n', 'i' }, '<up>', '<cmd>echo "Use k in normal to move!!"<CR>')
 vim.keymap.set({ 'n', 'i' }, '<down>', '<cmd>echo "Use j in normal to move!!"<CR>')
 
--- Disable h and l
-vim.keymap.set('n', 'l', '<cmd>echo "Use w to move laterally!!"<CR>')
-vim.keymap.set('n', 'h', '<cmd>echo "Use b to move laterally!!"<CR>')
-
--- Disable mouse clicks
--- vim.keymap.set({ 'n', 'i' }, '<RightMouse>', '<cmd>echo "Stop using your mouse!!"<CR>')
--- vim.keymap.set({ 'n', 'i' }, '<LeftMouse>', '<cmd>echo "Stop using your mouse!!"<CR>')
-
 -- Normal newline
 vim.keymap.set('n', 'nn', 'o<Esc>k')
 vim.keymap.set('n', 'NN', 'O<Esc>j')
@@ -394,6 +386,31 @@ require('lazy').setup({
       },
     },
   },
+  {
+    'NeogitOrg/neogit',
+    dependencies = {
+      'nvim-lua/plenary.nvim', -- required
+      'sindrets/diffview.nvim', -- optional - Diff integration
+    },
+    config = true,
+    cmd = 'Neogit',
+    keys = {
+      {
+        '<leader>gs',
+        '<cmd>Neogit<CR>',
+      },
+    },
+  },
+  {
+    'kylechui/nvim-surround',
+    version = '*', -- Use for stability; omit to use `main` branch for the latest features
+    event = 'VeryLazy',
+    config = function()
+      require('nvim-surround').setup {
+        -- Configuration here, or leave empty to use defaults
+      }
+    end,
+  },
   -- NOTE: Plugins can also be configured to run Lua code when they are loaded.
   --
   -- This is often very useful to both group configuration, as well as handle
@@ -525,12 +542,12 @@ require('lazy').setup({
       vim.keymap.set('n', '<leader>sk', builtin.keymaps, { desc = '[S]earch [K]eymaps' })
       vim.keymap.set('n', '<leader>sf', builtin.find_files, { desc = '[S]earch [F]iles' })
       vim.keymap.set('n', '<leader>ss', builtin.builtin, { desc = '[S]earch [S]elect Telescope' })
-      vim.keymap.set('n', '<leader>sw', builtin.grep_string, { desc = '[S]earch current [W]ord' })
       vim.keymap.set('n', '<leader>sg', builtin.live_grep, { desc = '[S]earch by [G]rep' })
       vim.keymap.set('n', '<leader>sd', builtin.diagnostics, { desc = '[S]earch [D]iagnostics' })
       vim.keymap.set('n', '<leader>sr', builtin.resume, { desc = '[S]earch [R]esume' })
       vim.keymap.set('n', '<leader>s.', builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
       vim.keymap.set('n', '<leader><leader>', builtin.buffers, { desc = '[ ] Find existing buffers' })
+      vim.keymap.set('n', '<leader>sw', builtin.lsp_dynamic_workspace_symbols, { desc = '[S]earch [W]orkspace' })
 
       -- Slightly advanced example of overriding default behavior and theme
       vim.keymap.set('n', '<leader>/', function()
