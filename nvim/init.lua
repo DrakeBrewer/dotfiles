@@ -1,7 +1,4 @@
 --[[
-Lsps = line-562
-keybinds = Line-
-
 =====================================================================
 ==================== READ THIS BEFORE CONTINUING ====================
 =====================================================================
@@ -730,6 +727,8 @@ require('lazy').setup({
       --  - capabilities (table): Override fields in capabilities. Can be used to disable certain LSP features.
       --  - settings (table): Override the default settings passed when initializing the server.
       --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
+      --
+      --  - https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md for list of lsps and config details
       local servers = {
         clangd = {
           show_parameter_hints = true,
@@ -737,7 +736,16 @@ require('lazy').setup({
         gopls = {
           gofumpt = false,
         },
-        -- pyright = {},
+        pyright = {},
+        html = {},
+        svelte = {},
+        eslint = {
+          showDocumentation = {
+            enable = true,
+          },
+          format = true,
+        },
+        tailwindcss = {},
         -- rust_analyzer = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
         --
