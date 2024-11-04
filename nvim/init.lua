@@ -964,10 +964,13 @@ require('lazy').setup({
       -- Like many other themes, this one has different styles, and you could load
       -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
       vim.cmd.colorscheme 'moonfly'
+      vim.cmd.hi 'Normal guibg=none ctermbg=none'
+      vim.cmd.hi 'LineNr guibg=none ctermbg=none'
+      vim.cmd.hi 'SignColumn guibg=none ctermbg=none'
 
       -- "EdenEast/nightfox.nvim"
       -- You can configure highlights by doing something like:
-      vim.cmd.hi 'Comment gui=none'
+      -- vim.cmd.hi 'Comment gui=none'
     end,
   },
 

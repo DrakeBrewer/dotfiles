@@ -197,6 +197,12 @@ keybinds {
     }
 }
 
+ui {
+    pane_frames {
+        rounded_corners true
+    }
+}
+
 plugins {
     tab-bar location="zellij:tab-bar"
     status-bar location="zellij:status-bar"
