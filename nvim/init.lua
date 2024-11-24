@@ -733,6 +733,7 @@ require('lazy').setup({
         clangd = {
           show_parameter_hints = true,
         },
+        bashls = {},
         gopls = {
           gofumpt = false,
         },

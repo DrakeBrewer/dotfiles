@@ -1,0 +1,64 @@
+layout {
+    swap_tiled_layout name="vertical" {
+           tab max_panes=5 {
+               pane split_direction="vertical" {
+                   pane
+                   pane { children; }
+               }
+           }
+           tab max_panes=8 {
+               pane split_direction="vertical" {
+                   pane { children; }
+                   pane { pane; pane; pane; pane; }
+               }
+           }
+           tab max_panes=12 {
+               pane split_direction="vertical" {
+                   pane { children; }
+                   pane { pane; pane; pane; pane; }
+                   pane { pane; pane; pane; pane; }
+               }
+           }
+    }
+
+    default_tab_template {
+        pane size=1 borderless=true {
+            plugin location="file:~/.config/zellij/plugins/zjstatus.wasm" {
+                // location "top"
+                // hide_frame_for_single_pane "true"
+
+                format_left  "{mode}#[fg=#80a0ff,bg=#080808,bold] {session}#[bg=#080808] {tabs}"
+                format_right "{command_kubectx}#[fg=#949494,bg=#080808]::{command_kubens}{command_git_branch}{datetime}"
+                // format_space "#[bg=#080808]"
+
+                // mode_normal          "#[bg=#80a0ff] "
+                // mode_tmux            "#[bg=#ffc387] "
+                mode_default_to_mode "tmux"
+
+                tab_normal               "#[fg=#323437,bg=#080808] {index} {name} {fullscreen_indicator}{sync_indicator}{floating_indicator}"
+                tab_active               "#[fg=#c6c6c6,bg=#080808,bold,italic] {index} {name} {fullscreen_indicator}{sync_indicator}{floating_indicator}"
+                tab_fullscreen_indicator "□ "
+                tab_sync_indicator       "  "
+                tab_floating_indicator   "󰉈 "
+
+                command_git_branch_command     "git rev-parse --abbrev-ref HEAD"
+                command_git_branch_format      "#[fg=blue] {stdout} "
+                command_git_branch_interval    "10"
+                command_git_branch_rendermode  "static"
+
+                command_kubectx_command  "kubectx -c"
+                command_kubectx_format   "#[fg=#323437,bg=#080808,italic] {stdout}"
+                command_kubectx_interval "2"
+
+                command_kubens_command  "kubens -c"
+                command_kubens_format   "#[fg=#323437,bg=#080808]{stdout} "
+                command_kubens_interval "2"
+
+                datetime          "#[fg=#c6c6c6,bg=#080808] {format} "
+                datetime_format   "%A, %d %b %Y %H:%M"
+                datetime_timezone "US/PST"
+            }
+        }
+        children
+    }
+}
