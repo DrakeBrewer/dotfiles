@@ -2,26 +2,23 @@
 [env]
 
 [window]
-padding = {x = 10, y = 10}
+padding = { x = 10, y = 10 }
 # startup_mode = "SimpleFullscreen"
 opacity = 0.90
+decorations = "buttonless"
 
 option_as_alt = "Both"
 
 [scrolling]
 
 [keyboard]
-bindings = [
-]
+bindings = []
 
 [font]
 # normal = { family = "Mx437 Acer VGA 8x8" }
 normal = { family = "MesloLGS NF" }
 size = 12.7
-offset = { x = 0, y = 2}
+offset = { x = 0, y = 2 }
 
 [general]
-import = [
-	"~/.config/alacritty/themes/moonfly.toml"
-]
-
+import = ["~/.config/alacritty/themes/moonfly.toml"]
