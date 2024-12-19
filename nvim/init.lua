@@ -740,14 +740,20 @@ require('lazy').setup({
         pyright = {},
         html = {},
         svelte = {},
+        cmake = {},
+        bufls = {},
         eslint = {
           showDocumentation = {
             enable = true,
           },
           format = true,
         },
+
         tailwindcss = {},
         taplo = {},
+        templ = {},
+        fennel_language_server = {},
+        rust_analyzer = {},
         -- rust_analyzer = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
         --
