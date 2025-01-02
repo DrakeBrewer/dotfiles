@@ -1,0 +1,49 @@
+# Styling
+config-file = ./themes/moonfly
+macos-titlebar-style = tabs
+
+font-size = 12
+font-family = hack nerd font mono
+adjust-cell-height = 13%
+
+window-padding-x = 5
+
+mouse-hide-while-typing = true
+
+window-new-tab-position = end
+
+# custom-shader = ./shaders/donut.glsl
+# custom-shader-animation = true
+
+# Splits
+# Might remove in favor of zellij/tmux. Not sure yet...
+unfocused-split-opacity = 0.5
+
+keybind = ctrl+p>r=new_split:right
+keybind = ctrl+p>d=new_split:down
+keybind = ctrl+p>x=close_surface
+
+keybind = ctrl+h=goto_split:left
+keybind = ctrl+j=goto_split:bottom
+keybind = ctrl+k=goto_split:top
+keybind = ctrl+l=goto_split:right
+
+keybind = ctrl+shift+h=resize_split:left,25
+keybind = ctrl+shift+j=resize_split:down,25
+keybind = ctrl+shift+k=resize_split:up,25
+keybind = ctrl+shift+l=resize_split:right,25
+keybind = ctrl+shift+e=equalize_splits
+
+# Misc
+keybind = global:cmd+shift+space=toggle_quick_terminal
+
+macos-auto-secure-input = true
+macos-secure-input-indication = true
+
+auto-update = check
+
+# Doesn't seem to be working yet
+macos-icon = custom-style
+macos-icon-frame = beige
+macos-icon-ghost-color = 1b1b1b
+macos-icon-screen-color = 1b1b1b
