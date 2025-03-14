@@ -782,10 +782,11 @@ require('lazy').setup({
           gofumpt = false,
         },
         pyright = {},
+        hls = {},
         html = {},
         svelte = {},
+        cssls = {},
         cmake = {},
-        bufls = {},
         eslint = {
           showDocumentation = {
             enable = true,
@@ -836,12 +837,10 @@ require('lazy').setup({
       -- You can add other tools here that you want Mason to install
       -- for you, so that they are available from within Neovim.
       local ensure_installed = vim.tbl_keys(servers or {})
-      vim.list_extend(ensure_installed, {
-        'stylua', -- Used to format Lua code
-      })
-      require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
       require('mason-lspconfig').setup {
+        ensure_installed = ensure_installed,
+        automatic_installation = { 'stylua' },
         handlers = {
           function(server_name)
             local server = servers[server_name] or {}
@@ -884,11 +883,20 @@ require('lazy').setup({
       formatters_by_ft = {
         lua = { 'stylua' },
         -- Conform can also run multiple formatters sequentially
-        -- python = { "isort", "black" },
+        python = { 'isort', 'black' },
         --
         -- You can use a sub-list to tell conform to run *until* a formatter
         -- is found.
-        -- javascript = { { "prettierd", "prettier" } },
+        javascript = { 'prettierd', 'prettier' },
+        html = { 'prettier', 'prettierd' },
+      },
+    },
+    formatters = {
+      prettier = {
+        prepend_args = {
+          '--html-whitespace-sensitivity=strict',
+          '--tab-width=2',
+        },
       },
     },
   },
@@ -1022,7 +1030,7 @@ require('lazy').setup({
 
       -- "EdenEast/nightfox.nvim"
       -- You can configure highlights by doing something like:
-      -- vim.cmd.hi 'Comment gui=none'
+      vim.cmd.hi 'Comment gui=none'
     end,
   },
 
@@ -1121,6 +1129,7 @@ require('lazy').setup({
   --  Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
   --    For additional information, see `:help lazy.nvim-lazy.nvim-structuring-your-plugins`
   -- { import = 'custom.plugins' },
+  ---@diagnostic disable: missing-fields
 }, {
   ui = {
     -- If you are using a Nerd Font: set icons to an empty table which will use the
