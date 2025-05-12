@@ -5,9 +5,9 @@ return {
       'mfussenegger/nvim-dap',
       name = 'nvim-dap',
       dir = os.getenv 'HOME' .. '/.local/share/nvim/lazy/nvim-dap',
-      dependencies = {
-        { 'leoluz/nvim-dap-go', name = 'nvim-dap-go', dir = os.getenv 'HOME' .. '/.local/share/nvim/lazy/dap-go' },
-      },
+      -- dependencies = {
+      --   { 'leoluz/nvim-dap-go', name = 'nvim-dap-go', dir = os.getenv 'HOME' .. '/.local/share/nvim/lazy/dap-go' },
+      -- },
       keys = {
         {
           '<leader>dl',
@@ -58,18 +58,18 @@ return {
             },
           },
         }
-        dap.adapters.dlv = {
-          type = 'server',
-          port = '${port}',
-          executable = {
-            command = os.getenv 'HOME' .. '/.local/share/nvim/mason/bin/dlv',
-            args = {
-              'dap',
-              '-l',
-              '127.0.0.1' .. ':' .. '${port}',
-            },
-          },
-        }
+        -- dap.adapters.dlv = {
+        --   type = 'server',
+        --   port = '${port}',
+        --   executable = {
+        --     command = os.getenv 'HOME' .. '/.local/share/nvim/mason/bin/dlv',
+        --     args = {
+        --       'dap',
+        --       '-l',
+        --       '127.0.0.1' .. ':' .. '${port}',
+        --     },
+        --   },
+        -- }
         dap.configurations.c = {
           {
             type = 'codelldb',
@@ -78,14 +78,14 @@ return {
             program = '${command:pickFile}',
           },
         }
-        dap.configurations.go = {
-          {
-            type = 'dlv',
-            request = 'launch',
-            name = 'dlv',
-            program = '${file}',
-          },
-        }
+        -- dap.configurations.go = {
+        --   {
+        --     type = 'dlv',
+        --     request = 'launch',
+        --     name = 'dlv',
+        --     program = '${file}',
+        --   },
+        -- }
       end,
     },
     'nvim-neotest/nvim-nio',
