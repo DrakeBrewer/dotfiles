@@ -78,6 +78,15 @@ return {
             program = '${command:pickFile}',
           },
         }
+        dap.configurations.zig = {
+          {
+            type = 'codelldb',
+            request = 'launch',
+            name = 'lldb',
+            program = '${command:pickFile}',
+            cwd = '${workspaceFolder}',
+          },
+        }
         -- dap.configurations.go = {
         --   {
         --     type = 'dlv',
