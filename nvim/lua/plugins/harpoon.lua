@@ -24,17 +24,11 @@ return {
 
   keys = {
     {
-      '<leader>hl',
+      '<leader>hf',
       function()
         toggle_telescope(require('harpoon'):list())
       end,
-    },
-    {
-      '<leader>hl',
-      function()
-        toggle_telescope(require('harpoon'):list())
-      end,
-      { desc = '[H]arpoon [L]ist' },
+      { desc = '[H]arpoon [F]ind' },
     },
 
     {
