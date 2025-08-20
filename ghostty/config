@@ -3,7 +3,7 @@ config-file = ./themes/moonfly
 macos-titlebar-style = tabs
 
 font-size = 12
-font-family = hack nerd font mono
+font-family = Mono Lisa NerdFont
 adjust-cell-height = 13%
 
 window-padding-x = 5
