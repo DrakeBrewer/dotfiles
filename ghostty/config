@@ -12,12 +12,13 @@ mouse-hide-while-typing = true
 
 window-new-tab-position = end
 
-# custom-shader = ./shaders/donut.glsl
+# custom-shader = ./shaders/crt.glsl
 # custom-shader-animation = true
 
 # Splits
 # Might remove in favor of zellij/tmux. Not sure yet...
 unfocused-split-opacity = 0.5
+split-divider-color = #1c1c1c
 
 keybind = ctrl+p>r=new_split:right
 keybind = ctrl+p>d=new_split:down
@@ -34,9 +35,13 @@ keybind = ctrl+shift+k=resize_split:up,25
 keybind = ctrl+shift+l=resize_split:right,25
 keybind = ctrl+shift+e=equalize_splits
 
-# Misc
+# Quick terminal
 keybind = global:cmd+shift+space=toggle_quick_terminal
+quick-terminal-position = center
+quick-terminal-size = 50%,50%
+quick-terminal-animation-duration = 0.2
 
+# Misc
 macos-auto-secure-input = true
 macos-secure-input-indication = true
 
@@ -44,6 +49,6 @@ auto-update = check
 
 # Doesn't seem to be working yet
 macos-icon = custom-style
-macos-icon-frame = beige
-macos-icon-ghost-color = 1b1b1b
+macos-icon-frame = plastic
+macos-icon-ghost-color = 000000
 macos-icon-screen-color = 1b1b1b
