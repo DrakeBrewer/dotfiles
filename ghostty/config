@@ -20,8 +20,10 @@ window-new-tab-position = end
 unfocused-split-opacity = 0.5
 split-divider-color = #1c1c1c
 
-keybind = ctrl+p>r=new_split:right
+keybind = ctrl+p>u=new_split:up
 keybind = ctrl+p>d=new_split:down
+keybind = ctrl+p>l=new_split:left
+keybind = ctrl+p>r=new_split:right
 keybind = ctrl+p>x=close_surface
 
 keybind = ctrl+h=goto_split:left
