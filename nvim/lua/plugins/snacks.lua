@@ -74,12 +74,12 @@ return {
         },
 
         -- git
-        -- {
-        --     '<leader>gs',
-        --     function()
-        --         Snacks.picker.git_status()
-        --     end,
-        --     desc = 'Git Status',
-        -- },
+        {
+            '<leader>gs',
+            function()
+                Snacks.lazygit()
+            end,
+            desc = 'Lazygit',
+        },
     },
 }
