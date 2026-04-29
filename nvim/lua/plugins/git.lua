@@ -11,19 +11,19 @@ return {
             },
         },
     },
-    -- {
-    --   'NeogitOrg/neogit',
-    --   dependencies = {
-    --     'nvim-lua/plenary.nvim', -- required
-    --     'sindrets/diffview.nvim', -- optional - Diff integration
-    --   },
-    --   config = true,
-    --   cmd = 'Neogit',
-    --   keys = {
-    --     {
-    --       '<leader>gs',
-    --       '<cmd>Neogit<CR>',
-    --     },
-    --   },
-    -- },
+    {
+        'NeogitOrg/neogit',
+        dependencies = {
+            'nvim-lua/plenary.nvim', -- required
+            'sindrets/diffview.nvim', -- optional - Diff integration
+        },
+        config = true,
+        cmd = 'Neogit',
+        keys = {
+            {
+                '<leader>gs',
+                '<cmd>Neogit<CR>',
+            },
+        },
+    },
 }

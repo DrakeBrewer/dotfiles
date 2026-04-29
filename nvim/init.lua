@@ -14,9 +14,6 @@ vim.g.have_nerd_font = true
 
 -- Make line numbers default
 vim.opt.number = true
--- You can also add relative line numbers, to help with jumping.
---  Experiment for yourself to see if you like it!
-vim.opt.relativenumber = false
 
 -- Enable mouse mode, can be useful for resizing splits for example!
 vim.opt.mouse = 'a'
@@ -65,9 +62,6 @@ vim.opt.inccommand = 'split'
 -- Show which line your cursor is on
 vim.opt.cursorline = true
 
--- Minimal number of screen lines to keep above and below the cursor.
-vim.opt.scrolloff = 10
-
 vim.opt.hlsearch = true
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
@@ -77,11 +71,6 @@ vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Show diagn
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
-
-vim.keymap.set({ 'n', 'i' }, '<left>', '<cmd>echo "Use h in normal to move!!"<CR>')
-vim.keymap.set({ 'n', 'i' }, '<right>', '<cmd>echo "Use l in normal to move!!"<CR>')
-vim.keymap.set({ 'n', 'i' }, '<up>', '<cmd>echo "Use k in normal to move!!"<CR>')
-vim.keymap.set({ 'n', 'i' }, '<down>', '<cmd>echo "Use j in normal to move!!"<CR>')
 
 vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
 vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
@@ -214,13 +203,13 @@ require('lazy').setup({
         },
     },
     {
-        'bluz71/vim-moonfly-colors',
-        -- 'catppuccin/nvim',
+        -- 'bluz71/vim-moonfly-colors',
+        'catppuccin/nvim',
         -- 'nyoom-engineering/oxocarbon.nvim',
         priority = 1000,
         init = function()
-            vim.cmd.colorscheme 'moonfly'
-            -- vim.cmd.colorscheme 'catppuccin'
+            -- vim.cmd.colorscheme 'moonfly'
+            vim.cmd.colorscheme 'catppuccin'
             -- vim.cmd.colorscheme 'oxocarbon'
             vim.cmd.hi 'Normal guibg=none ctermbg=none'
             vim.cmd.hi 'LineNr guibg=none ctermbg=none'
@@ -235,31 +224,10 @@ require('lazy').setup({
     { -- Collection of various small independent plugins/modules
         'echasnovski/mini.nvim',
         config = function()
-            -- Better Around/Inside textobjects
-            --
-            -- Examples:
-            --  - va)  - [V]isually select [A]round [)]paren
-            --  - yinq - [Y]ank [I]nside [N]ext [']quote
-            --  - ci'  - [C]hange [I]nside [']quote
             require('mini.ai').setup { n_lines = 500 }
-
-            -- Add/delete/replace surroundings (brackets, quotes, etc.)
-            --
-            -- - saiw) - [S]urround [A]dd [I]nner [W]ord [)]Paren
-            -- - sd'   - [S]urround [D]elete [']quotes
-            -- - sr)'  - [S]urround [R]eplace [)] [']
             require('mini.surround').setup()
-
-            -- Simple and easy statusline.
-            --  You could remove this setup call if you don't like it,
-            --  and try some other statusline plugin
             local statusline = require 'mini.statusline'
-            -- set use_icons to true if you have a Nerd Font
             statusline.setup { use_icons = vim.g.have_nerd_font }
-
-            -- You can configure sections in the statusline by overriding their
-            -- default behavior. For example, here we set the section for
-            -- cursor location to LINE:COLUMN
             ---@diagnostic disable-next-line: duplicate-set-field
             statusline.section_location = function()
                 return '%2l:%-2v'
